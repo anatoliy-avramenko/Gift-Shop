@@ -11,6 +11,7 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
+    font-weight: 400;
     color: #464646;
     text-decoration: none;
 }
@@ -21,34 +22,30 @@ body {
     flex-grow: 0;
     min-height: 100vh;
     min-width: 320px;
-    overflow: hidden;
-
+    max-width: 1190px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
-main {
-    flex-grow: 1;
-}
 
-footer {
+
+
+/*********************************************************************
+ *************************** Header **********************************
+ ********************************************************************/
+
+header {
     flex-grow: 0;
 }
 
-.wrapper-inner {
-    max-width: 1170px;
-    width: 100%;
-    margin: 0 auto;
-}
+/*************************** Header-top *****************************/
 
-
-
-/****************************** Header ***************************************/
-
-
-
-.header-content {
+.header-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin: 0 0 15px;
 }
 
 .logo {
@@ -61,17 +58,40 @@ footer {
     width: 100%;
 }
 
-.header-links {
+
+/******* Header-top-links ********/
+
+.header-top-links {
     flex-grow: 1;
+	flex-shrink: 0;
 }
 
-.header-controls {
+
+/******* Header-top-nav ********/
+
+.header-top-links nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    display: inline-block;
+    line-height: 40px;
+    color: #434343;
+    margin: 0 0 0 32px;
+    letter-spacing: 1px;
+}
+
+
+/******* Header-top-buttons ********/
+
+.header-buttons {
     background: #f6f6f6;
     display: flex;
     justify-content: flex-end;
 }
 
-.header-controls a {
+.header-buttons a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,12 +104,12 @@ footer {
     letter-spacing: 1px;
 }
 
-.header-controls a:nth-of-type(2n) {
+.header-buttons a:nth-of-type(2n) {
     background: #f0626e;
 }
 
-.header-controls .to-cart,
-.header-controls .to-wishlist {
+.header-buttons .to-cart,
+.header-buttons .to-wishlist {
     width: 142px;
 }
 
@@ -108,22 +128,257 @@ footer {
 }
 
 
+/******************** Header-categories-bar *************************/
+
+.categories-bar {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    background: #05aecc;
+    margin: 0 0 15px;
+}
+
+.category-item {
+    display: block;
+    color: #fff;
+    line-height: 70px;
+    padding: 0 25px;
 
 
-/* header-nav************/
+}
 
-.header-links nav {
+
+
+/*********************************************************************
+ *************************** Main **********************************
+ ********************************************************************/
+
+main {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+
+/*************************** Cards-upper *****************************/
+
+.cards-upper {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    align-items: center;
+}
+
+.cards-pair {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-basis: calc(100% - 57.26495% - 5px);
+}
+
+.card {
+    position: relative;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.card-side-text,
+.card-control {
+    position: absolute;
+}
+
+.card-1 {
+    flex-basis: 57.26495%;
+    margin-right: 5px;
+}
+
+.card-2 {
+    margin-bottom: 5px;
+}
+
+
+/**** side text ****/
+
+.card-contents {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    left: 0;
+    bottom: 1vw;
+    width: 53%;
+}
+
+.card .card-side-text {
+    display: none;
+    width: 53%;
+    height: auto;
+    left: 0;
+    top: auto;
+    bottom: 0.6vw;
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: flex-end;
+    background: rgba(54,42,79,0.8);
+    padding: 12px 12px 12px;
+}
+
+.card .card-title {
+    font-family: 'Aparajita', serif;
+    font-size: 35px;
+    color: #ef5966;
+    line-height: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.card .card-desc {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 12px;
+}
+
+.card-1 .card-contents .card-side-text {
+    position: relative;
+    padding: 13px 15px 15px 22px;
+    bottom: auto;
+    width: 100%;
+    margin: 0 0 2px 0;
+}
+
+.card-contents .card-title {
+    font-size: 58px;
+    line-height: 58px;
+}
+
+.card-1 .card-contents .card-desc {
+    font-size: 13px;
+}
+
+.card-1 .card-contents .card-note {
+    background: #ef5966;
+    width: 100%;
+    color: #fff;
+    font-family: 'Aparajita', serif;
+    text-transform: uppercase;
+    font-size: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    padding: 12px 10px 8px 15px;
+
+}
+
+/**** card note ****/
+
+.card-control {
+    background: #ef5966;
+    /*display: none;*/
+    position: absolute;
+    right: 0;
+    bottom: 2.39vw;
     display: flex;
     justify-content: flex-end;
+    height: 55px;
 }
 
-nav a {
+.card-control .go-to-item {
+    display: block;
+    color: #fff;
+    line-height: 55px;
+    background: #05aecc;
+    padding: 0 10px
+}
+
+.card-control button {
+    width: 55px;
+    background: #00a1be;
+    border: none;
+}
+
+.card-control button.add-to-cart {
+    background: #f0626e;
+}
+
+.card-control button:after {
+    content: '';
     display: inline-block;
-    line-height: 40px;
-    color: #434343;
-    margin: 0 0 0 32px;
-    letter-spacing: 1px;
+    width: 30px;
+    height: 30px;
+    background: url(../source/images/icon-gift.png) no-repeat center;
+    text-align: center;
+}
+
+.card-control button.add-to-cart:after {
+    background: url(../source/images/icon-cart.png) no-repeat center;
+}
+
+.card-control div.item-cost {
+    background: #323232;
+    color: #fff;
+    padding: 13px 10px 0 23px;
+    font-size: 24.45px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.card-control div.item-cost:after {
+    content: '$';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    line-height: 55px;
+    padding: 0 0 0 11px;
+}
+
+.card-control div.item-cost sup {
+    color: #fff;
+    font-size: 15px;
 }
 
 
-/****************************** Header ***************************************/
+
+
+
+
+
+/*********************************************************************
+ *************************** Footer **********************************
+ ********************************************************************/
+
+footer {
+    flex-grow: 0;
+}
+
+
+
+
+
+
+/*********************************************************************
+ ********************** Media queries  ******************************
+ ********************************************************************/
+
+@media (max-width: 1170px) {
+
+    .card .card-title {
+        font-size: 2.8vw;
+        line-height: 2.8vw;
+    }
+
+    .card-1 .card-contents .card-title {
+        font-size: 4.8vw;
+        line-height: 4.8vw;
+    }
+
+
+
+
+}
