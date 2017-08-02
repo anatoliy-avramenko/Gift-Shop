@@ -299,6 +299,7 @@ main {
     width: 55px;
     background: #00a1be;
     border: none;
+    cursor: pointer;
 }
 
 .card-control button.add-to-cart {
