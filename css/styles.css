@@ -58,6 +58,10 @@ header {
     width: 100%;
 }
 
+.logo:hover img {
+    opacity: 0.8;
+}
+
 
 /******* Header-top-links ********/
 
@@ -80,8 +84,12 @@ nav a {
     color: #434343;
     margin: 0 0 0 32px;
     letter-spacing: 1px;
+    transition: 0.4s;
 }
 
+.header-top-links nav a:hover {
+    color: #f0626e;
+}
 
 /******* Header-top-buttons ********/
 
@@ -102,6 +110,7 @@ nav a {
     color: #fff;
     margin: 0 0 0 5px;
     letter-spacing: 1px;
+    transition: 0.4s;
 }
 
 .header-buttons a:nth-of-type(2n) {
@@ -127,6 +136,14 @@ nav a {
     background: url(../source/images/icon-gift.png) no-repeat center;
 }
 
+.header-buttons a:hover {
+    background: #00a1be;
+}
+
+.header-buttons a:hover:nth-of-type(2n) {
+    background: #c6535d;
+}
+
 
 /******************** Header-categories-bar *************************/
 
@@ -144,8 +161,12 @@ nav a {
     color: #fff;
     line-height: 70px;
     padding: 0 25px;
+    transition: 0.4s;
+}
 
-
+.category-item:hover {
+    background: #fff;
+    color: #f0626e;
 }
 
 
@@ -158,6 +179,54 @@ main {
     flex-grow: 1;
     overflow: hidden;
 }
+
+/**** tooltip ****/
+
+span.tooltip {
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    justify-content: center;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #f0626e;
+    color: #434343;
+    font-size: 13px;
+    line-height: 13px;
+    padding: 7px 22px;
+    height: auto;
+    width: auto;
+    white-space: nowrap;
+    transform: translate(-50%, 0);
+}
+
+span.tooltip:before {
+    content: '';
+    border-width: 10px;
+    border-style: solid;
+    border-color: #f0626e transparent transparent transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+span.tooltip:after {
+    content: '';
+    border-width: 8px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.card-control > *:hover .tooltip {
+    display: block;
+}
+
 
 
 /*************************** Cards-upper *****************************/
@@ -178,6 +247,12 @@ main {
 
 .card {
     position: relative;
+    overflow: hidden;
+    /*transition: ease-out 0.8s;*/
+}
+
+.card > * {
+    transition: ease-out 0.4s;
 }
 
 .card img {
@@ -216,13 +291,12 @@ main {
 }
 
 .card .card-side-text {
-    display: none;
     width: 53%;
     height: auto;
     left: 0;
     top: auto;
     bottom: 0.6vw;
-    /*display: flex;*/
+    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     background: rgba(54,42,79,0.8);
@@ -244,7 +318,11 @@ main {
     font-size: 12px;
 }
 
-.card-1 .card-contents .card-side-text {
+.card-1 .card-contents .card-side-text-big {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: rgba(54,42,79,0.8);
     position: relative;
     padding: 13px 15px 15px 22px;
     bottom: auto;
@@ -278,13 +356,17 @@ main {
 
 .card-control {
     background: #ef5966;
-    /*display: none;*/
     position: absolute;
-    right: 0;
+    right: -320px;
     bottom: 2.39vw;
     display: flex;
     justify-content: flex-end;
     height: 55px;
+}
+
+.card-control > * {
+    position: relative;
+
 }
 
 .card-control .go-to-item {
@@ -300,6 +382,7 @@ main {
     background: #00a1be;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 
 .card-control button.add-to-cart {
@@ -344,6 +427,37 @@ main {
     font-size: 15px;
 }
 
+.card:hover .card-side-text,
+.card:hover .card-contents {
+    left: -360px;
+}
+
+.card:hover .card-control {
+    right: 0;
+}
+
+.card:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: 0.4s;
+}
+
+.card:hover:before {
+    background: rgba(0, 0, 0, 0.588);
+}
+
+.card .card-control > *:not(:last-child) {
+    transition: 0.4s;
+}
+
+.card .card-control > *:hover:not(:last-child) {
+}
 
 
 
@@ -382,4 +496,16 @@ footer {
 
 
 
+
+
 }
+
+
+
+
+
+
+
+
+
+
