@@ -14,6 +14,7 @@
     font-weight: 400;
     color: #464646;
     text-decoration: none;
+    transition: .4s;
 }
 
 body {
@@ -56,6 +57,7 @@ header {
 
 .logo img {
     width: 100%;
+    opacity: 1;
 }
 
 .logo:hover img {
@@ -161,7 +163,7 @@ nav a {
     color: #fff;
     line-height: 70px;
     padding: 0 25px;
-    transition: 0.4s;
+    transition: 0.6s;
 }
 
 .category-item:hover {
@@ -183,7 +185,8 @@ main {
 /**** tooltip ****/
 
 span.tooltip {
-    display: none;
+    display: block;
+    opacity: 0;
     position: absolute;
     top: -30px;
     left: 50%;
@@ -224,7 +227,7 @@ span.tooltip:after {
 }
 
 .card-control > *:hover .tooltip {
-    display: block;
+    opacity: 1;
 }
 
 
@@ -248,11 +251,10 @@ span.tooltip:after {
 .card {
     position: relative;
     overflow: hidden;
-    /*transition: ease-out 0.8s;*/
 }
 
 .card > * {
-    transition: ease-out 0.4s;
+    transition: ease-out 0.6s;
 }
 
 .card img {
@@ -271,6 +273,7 @@ span.tooltip:after {
 .card-1 {
     flex-basis: 57.26495%;
     margin-right: 5px;
+    flex-shrink: 1;
 }
 
 .card-2 {
@@ -287,7 +290,7 @@ span.tooltip:after {
     position: absolute;
     left: 0;
     bottom: 1vw;
-    width: 53%;
+    width: 54%;
 }
 
 .card .card-side-text {
@@ -493,13 +496,58 @@ footer {
         line-height: 4.8vw;
     }
 
+}
 
 
+@media(max-width: 980px) {
 
+    .cards-upper {
+        flex-wrap: wrap;
+        align-items: stretch;
+    }
 
+    .card-1 {
+        flex-basis: 50%;
+    }
+
+    .card-1 img {
+        position: absolute;
+        top: 0;
+        left: -15%;
+        height: 100%;
+        width: auto;
+    }
+
+    .cards-pair {
+        flex-basis: calc(50% - 5px);
+    }
 
 }
 
+@media(max-width: 768px) {
+
+    .card {
+        flex-basis: 100%;
+    }
+
+    .card-1 img {
+        position: relative;
+        left: 0;
+        height: auto;
+        width: 100%;
+        margin: 0 0 5px 0;
+    }
+
+    .cards-pair {
+        flex-basis: 100%;
+    }
+
+    .categories-bar {
+        display: none;
+    }
+
+
+}
 
 
 
