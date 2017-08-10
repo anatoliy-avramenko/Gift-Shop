@@ -12,6 +12,8 @@
 
 <body>
 
+	<div class="mobile-nav"></div>
+
 <header>
 
     <div class="header-top">
@@ -30,13 +32,15 @@
             </nav>
 
             <div class="header-buttons">
-                <a href="#">Register</a>
+                <a href="#" id="sign-up">Register</a>
                 <a href="#">Sign In</a>
                 <a href="#" class="to-wishlist">Wishlist</a>
                 <a href="#" class="to-cart">Cart</a>
             </div>
 
         </div>
+
+	    <i class="burger fa fa-bars"></i>
 
     </div>
 
@@ -427,17 +431,236 @@
 
             </div>
 
-
-
         </div>
 
     </section>
+
+	<section class="cards-upper">
+
+		<div class="cards-pair-wide">
+
+			<div class="card card-search no-fade">
+				<form class="form-search">
+					<input type="text" id="search" required="required">
+					<label for="search">Search your product here <span>(e.g.: Silver diamond ring)</span></label>
+					<button class="btn-search"></button>
+				</form>
+			</div>
+
+			<div class="card card-4 no-fade">
+				<img src="source/images/card-4.jpg" alt="img">
+				<div class="card-side-text">
+					<div class="card-title">Crafts</div>
+					<div class="card-desc">Lorem Ipsum is simply dummy text of the
+						printing and typesetting</div>
+				</div>
+
+				<div class="card-control">
+					<a href="#" class="go-to-item">Crafts<span class="tooltip">more details</span></a>
+					<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+					<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+					<div class="item-cost">99.<sup>00</sup></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="card card-5 no-fade">
+			<img src="source/images/card-5.jpg" alt="img">
+			<div class="card-side-text">
+				<div class="clock-decor">
+					<div class="clock-decor-inner"><i class="fa fa-angle-right"></i></div>
+				</div>
+				<div class="card-title-vertical">Jewelry</div>
+			</div>
+
+			<div class="card-control">
+				<a href="#" class="go-to-item">Jewelry<span class="tooltip">more details</span></a>
+				<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+				<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+				<div class="item-cost">99.<sup>00</sup></div>
+			</div>
+		</div>
+
+	</section>
+
+
+	<section class="slider-new-products">
+
+		<header>
+			<h2>New Products</h2>
+			<div class="navigation">
+				<button class="prev"><i class="fa fa-angle-left"></i></button>
+				<button class="next"><i class="fa fa-angle-right"></i></button>
+			</div>
+		</header>
+
+		<div class="slider-body">
+
+			<div class="slide-new-prod">
+				<img src="source/images/slide-1.1.jpg">
+
+				<div class="card-control">
+					<a href="#" class="go-to-item">Crafts<span class="tooltip">more details</span></a>
+					<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+					<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+					<div class="item-cost">99.<sup>00</sup></div>
+				</div>
+			</div>
+
+			<div class="slide-new-prod">
+				<img src="source/images/slide-1.2.jpg">
+
+				<div class="card-control">
+					<a href="#" class="go-to-item">Crafts<span class="tooltip">more details</span></a>
+					<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+					<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+					<div class="item-cost">99.<sup>00</sup></div>
+				</div>
+			</div>
+
+			<div class="slide-new-prod">
+				<img src="source/images/slide-1.3.jpg">
+
+				<div class="card-control">
+					<a href="#" class="go-to-item">Crafts<span class="tooltip">more details</span></a>
+					<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+					<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+					<div class="item-cost">99.<sup>00</sup></div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+
+	</section>
+
+	<section class="slider-featured-products">
+
+		<header>
+			<h2>Featured Products</h2>
+			<div class="navigation">
+				<button class="prev"><i class="fa fa-angle-left"></i></button>
+				<button class="next"><i class="fa fa-angle-right"></i></button>
+			</div>
+		</header>
+
+
+		<div class="slider-body">
+
+			<div class="slide-featured-prod">
+				<img src="source/images/slide-2.1.jpg">
+				<div class="product-label">20% OFF</div>
+
+				<div class="feat-prod-caption">
+					<h3>Product Title here</h3>
+					<span>Short Description here</span>
+
+					<div class="slide-control">
+						<button class="add-to-compare"><span class="tooltip">compare</span></button>
+						<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+						<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+						<div class="item-cost">99.<sup>00</sup></div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="slide-featured-prod">
+				<img src="source/images/slide-2.2.jpg">
+				<div class="product-label">20% OFF</div>
+
+				<div class="feat-prod-caption">
+					<h3>Product Title here</h3>
+					<span>Short Description here</span>
+
+					<div class="slide-control">
+						<button class="add-to-compare"><span class="tooltip">compare</span></button>
+						<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+						<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+						<div class="item-cost">99.<sup>00</sup></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="slide-featured-prod">
+				<img src="source/images/slide-2.3.jpg">
+				<div class="product-label">20% OFF</div>
+
+				<div class="feat-prod-caption">
+					<h3>Product Title here</h3>
+					<span>Short Description here</span>
+
+					<div class="slide-control">
+						<button class="add-to-compare"><span class="tooltip">compare</span></button>
+						<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+						<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+						<div class="item-cost">99.<sup>00</sup></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="slide-featured-prod">
+				<img src="source/images/slide-2.4.jpg">
+				<div class="product-label">20% OFF</div>
+
+				<div class="feat-prod-caption">
+					<h3>Product Title here</h3>
+					<span>Short Description here</span>
+
+					<div class="slide-control">
+						<button class="add-to-compare"><span class="tooltip">compare</span></button>
+						<button class="add-to-wish"><span class="tooltip">add to wish-list</span></button>
+						<button class="add-to-cart"><span class="tooltip">add to cart</span></button>
+						<div class="item-cost">99.<sup>00</sup></div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+
+
+	</section>
+
 
 
 
 </main>
 
 <footer></footer>
+
+	<div class="modal">
+
+		<form class="form-sign">
+
+			<i class="close-modal fa fa-close"></i>
+
+			<div class="form-title"></div>
+
+			<label>
+				<input type="text" placeholder="Имя *">
+			</label>
+
+			<label>
+				<input type="tel" placeholder="Номер телефона *">
+			</label>
+
+			<label>
+				<input type="email" placeholder="Электронная почта *">
+			</label>
+
+			<span>* поля, обязательные для заполнения</span>
+
+			<button type="submit">Отправить заявку</button>
+
+		</form>
+
+	</div>
 
 <script src="js/jquery-3.2.1.js"></script>
 <script src="lib/slick/slick.min.js"></script>
