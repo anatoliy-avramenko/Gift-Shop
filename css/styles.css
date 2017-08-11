@@ -32,6 +32,7 @@ body {
 button {
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
 
@@ -310,6 +311,7 @@ span.tooltip {
     width: auto;
     white-space: nowrap;
     transform: translate(-50%, 0);
+    z-index: 3;
 }
 /*triangle arrow and arrow border*/
 span.tooltip:before {
@@ -334,8 +336,21 @@ span.tooltip:after {
     transform: translate(-50%, 0);
 }
 
-.card-control > *:hover .tooltip {
+.card-control > *:hover .tooltip,
+.slide-control > *:hover .tooltip {
     opacity: 1;
+}
+
+span.tooltip-shifted {
+    left: 100%;
+}
+
+span.tooltip-shifted:after {
+     left: 20%;
+}
+
+span.tooltip-shifted:before {
+    left: 20%;
 }
 
 
@@ -360,7 +375,6 @@ span.tooltip:after {
 .cards-upper:nth-of-type(2) {
     margin: 0 0 40px 0;
 }
-
 
 .card-1,
 .cards-pair-wide {
@@ -655,7 +669,8 @@ div.card-5 .card-side-text {
     right: 800px;
 }
 
-.card-control > * {
+.card-control > *,
+.slide-control > * {
     position: relative;
 }
 
@@ -679,7 +694,8 @@ div.card-5 .card-side-text {
 }
 
 
-.card-control button {
+.card-control button,
+.slide-control button {
     width: 55px;
     background: #00a1be;
     border: none;
@@ -704,16 +720,19 @@ div.card-5 .card-side-text {
     background: url(../source/images/icon-cart.png) no-repeat center;
 }
 
-.card-control div.item-cost {
+.card-control div.item-cost,
+.slide-control div.item-cost {
     background: #323232;
     color: #fff;
     padding: 13px 10px 0 23px;
     font-size: 24.45px;
     vertical-align: middle;
     position: relative;
+    transition: .4s;
 }
 
-.card-control div.item-cost:after {
+.card-control div.item-cost:after,
+.slide-control div.item-cost:after {
     content: '$';
     display: block;
     position: absolute;
@@ -721,10 +740,11 @@ div.card-5 .card-side-text {
     left: 0;
     font-size: 16px;
     line-height: 55px;
-    padding: 0 0 0 11px;
+    padding: 0 0 0 15%;
 }
 
-.card-control div.item-cost sup {
+.card-control div.item-cost sup,
+.slide-control div.item-cost sup {
     color: #fff;
     font-size: 15px;
 }
@@ -754,8 +774,7 @@ div.card-5 .card-side-text {
 
 /*************************** Slider-1  *****************************/
 
-.slider-new-products header,
-.slider-featured-products header {
+section header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -768,8 +787,7 @@ div.card-5 .card-side-text {
     margin: 0 0 40px 0;
 }
 
-.slider-new-products header:after,
-.slider-featured-products header:after {
+section header:after {
     content: '';
     display: block;
     width: 100%;
@@ -781,8 +799,7 @@ div.card-5 .card-side-text {
     z-index: -1;
 }
 
-.slider-new-products header h2,
-.slider-featured-products header h2 {
+section header h2 {
     font-size: 30px;
     color: #00a1be;
     border-bottom: 1px solid #f0626e;
@@ -792,8 +809,7 @@ div.card-5 .card-side-text {
     cursor: pointer;
 }
 
-.slider-new-products header h2:hover,
-.slider-featured-products header h2:hover {
+section header h2:hover {
     color: #f0626e;
 }
 
@@ -823,6 +839,7 @@ div.card-5 .card-side-text {
 .slider-body {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .slide-new-prod {
@@ -835,7 +852,7 @@ div.card-5 .card-side-text {
 }
 
 .slide-new-prod img,
-.slide-featured-prod img {
+div.slide-featured-prod img {
     position: absolute;
     top: 0;
     left: 0;
@@ -844,6 +861,7 @@ div.card-5 .card-side-text {
     min-width: 100%;
     min-height: 100%;
     overflow: hidden;
+    z-index: -1;
 }
 
 .slide-new-prod:before {
@@ -864,14 +882,12 @@ div.card-5 .card-side-text {
 }
 
 .slide-new-prod .card-control {
-    bottom: 50%;
-    transform: translate(0, 50%);
+    bottom: calc(50% - 30px);
 }
 
 .slide-new-prod:hover .card-control {
     right: 50%;
-    /*bottom: 50%;*/
-    transform: translate(50%, 50%);
+    transform: translate(50%, 0);
 }
 
 
@@ -885,13 +901,188 @@ div.card-5 .card-side-text {
     cursor: pointer;
     overflow: hidden;
     padding-top: 24%;
+    border: 1px solid #dddddd;
+}
 
+.slide-featured-prod h3 {
+    font-size: 18px;
+    color: #434343;
+    letter-spacing: 1.5px;
+    padding: 12px 10px 0;
+}
+
+.slide-featured-prod .feat-prod-caption span:not(.tooltip) {
+    font-size: 13px;
+    color: #f0626e;
+    letter-spacing: 1.5px;
+    padding: 0 0 15px 10px;
+}
+
+.feat-prod-caption {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.slide-control {
+    border-top: 1px solid #dddddd;
+    display: flex;
+    justify-content: flex-end;
+    height: 55px;
+    position: relative;
+}
+
+.slide-control div.item-cost {
+    background: #f0626e;
+    flex-grow: 1;
+    padding: 13px 10px 0 12%;
+}
+
+.slide-control button {
+    background: #fff;
+    border-right: 1px solid #dddddd;
+}
+
+.slide-control button:after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background: url(../source/images/icon-small-compare.png) no-repeat center;
+}
+
+
+.slide-control button.add-to-wish:after {
+    background: url(../source/images/icon-small-gift.png) no-repeat center;
+}
+
+.slide-control button.add-to-cart:after {
+    background: url(../source/images/icon-small-cart.png) no-repeat center;
+}
+
+.slide-featured-prod:hover .feat-prod-caption span:not(.tooltip) {
+    color: #05aecc;
+    transition: .4s;
+}
+
+.slide-featured-prod:hover .slide-control div.item-cost {
+    background: #05aecc;
+}
+
+.product-label {
+    background: #05aecc;
+    position: absolute;
+    width: 80px;
+    left: 0;
+    top: 4%;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.slide-featured-prod:nth-of-type(3) .product-label {
+    background: #f0626e;
+}
+
+div.slide-featured-prod img {
+    left: -45px;
 }
 
 
 
 
 
+
+/************************** About us ****************************/
+
+.about-us span {
+    display: block;
+    color: #464646;
+    padding: 0 25px 25px;
+    line-height: 26px;
+}
+
+.about-us {
+    border-bottom: 1px solid #b9b9b9;
+    margin: 0 0 50px;
+}
+
+.about-us-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-us-buttons button:not(.opt-4) {
+    display: block;
+    width: calc((100% - 64px) / 3);
+    max-height: 232px;
+    height: 19vw;
+    background: #434343;
+    margin: 0 0 30px 0;
+    vertical-align: middle;
+    position: relative;
+}
+
+.about-us-buttons button.opt-2 {
+    background: #05aecc;
+}
+
+.about-us-buttons button.opt-3 {
+    background: #f0626e;
+}
+
+.about-us-buttons button:not(.opt-4) span {
+    color: #fff;
+    padding: 0 0 0 55%;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: left;
+}
+
+.about-us-buttons button:not(.opt-4) span:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 30%;
+    background: url(../source/images/icon-chose-prod.png) no-repeat center;
+    background-size: contain;
+    width: 80%;
+    height: 80%;
+}
+
+.about-us-buttons button.opt-2 span:after {
+    background: url(../source/images/icon-login.png) no-repeat center;
+    background-size: contain;
+}
+
+.about-us-buttons button.opt-3 span:after {
+    background: url(../source/images/icon-checkout.png) no-repeat center;
+    background-size: contain;
+}
+
+.about-us-buttons button.opt-4 {
+    margin: 0 auto 30px;
+    max-width: 660px;
+    width: 56%;
+    height: 60px;
+    background: #05aecc;
+    vertical-align: middle;
+}
+
+.about-us-buttons button.opt-4 span {
+    color: #fff;
+    font-size: 30px;
+    padding: 0;
+}
+
+.about-us-buttons button:hover {
+    filter: brightness(.8);
+}
 
 
 /*********************************************************************
@@ -900,6 +1091,111 @@ div.card-5 .card-side-text {
 
 footer {
     flex-grow: 0;
+}
+
+footer .footer-nav{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #b9b9b9;
+    margin: 0 0 20px 0;
+    padding: 0 2px 55px 20px;
+    height: 100%;
+}
+
+.col {
+    display: block;
+    color: #434343;
+}
+
+.col h4 {
+    font-size: 25px;
+    line-height: 30px;
+    margin: 0 0 35px 0;
+    text-transform: uppercase;
+}
+
+.col-4 h4:last-of-type {
+    margin: 0 0 15px 0;
+}
+
+.col a {
+    display: block;
+    line-height: 30px;
+    color: #434343;
+}
+
+.col-4 {
+    max-width: 380px;
+    width: 32%;
+}
+
+.col input {
+    border: 1px solid #dedede;
+    width: 100%;
+    max-height: 70px;
+    height: 5vw;
+    vertical-align: middle;
+    color: #434343;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.col input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+
+.col-4 form button {
+    width: 100%;
+    max-height: 52px;
+    height: 4vw;
+    background: #05aecc;
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+}
+
+.social {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.social div {
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 25px;
+    text-align: center;
+    background: #f8bc2e;
+    margin: 0 10px 0 0;
+}
+
+.social div:nth-of-type(2) {
+    background: #39599f;
+}
+
+.social div:nth-of-type(3) {
+    background: #45b0e3;
+}
+
+.social div:nth-of-type(4) {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+}
+
+.social div:nth-of-type(5) {
+    background: #1872bf;
+}
+
+.social div i {
+    color: #fff;
+    vertical-align: middle;
 }
 
 
@@ -947,9 +1243,7 @@ footer {
     height: 40px;
 }
 
-/*.card:hover .card-control {*/
-    /*right: 0;*/
-/*}*/
+
 
 
 
@@ -980,6 +1274,15 @@ footer {
 
     input[required] + label  {
         letter-spacing: .5px;
+    }
+
+    .about-us-buttons button:not(.opt-4) span {
+        font-size: 2.5vw;
+        line-height: 2.8vw;
+    }
+
+    .about-us-buttons button.opt-4 span {
+        font-size: 2.5vw;
     }
 
 }
@@ -1041,9 +1344,6 @@ footer {
         height: 30px;
     }
 
-
-
-
     /***** jewelry *****/
 
     div.card-5 .card-side-text {
@@ -1060,6 +1360,27 @@ footer {
 
     .clock-decor {
         display: none;
+    }
+
+    .about-us-buttons button:not(.opt-4) {
+        width: calc((100% - 20px) / 3);
+    }
+
+    .about-us-buttons button:not(.opt-4) span:after {
+        top: 25%;
+        right: 50%;
+        width: 50%;
+        height: 50%;
+    }
+
+    .about-us-buttons button:not(.opt-4) span {
+        font-size: 3vw;
+        line-height: 3.2vw;
+        padding: 0 0 0 40%;
+    }
+
+    .about-us-buttons button.opt-4 span {
+        font-size: 3vw;
     }
 
 
@@ -1254,6 +1575,39 @@ footer {
 
     .burger {
         margin: 0 0 0 10px;
+    }
+
+    .about-us-buttons button:not(.opt-4) span:after {
+        display: none;
+    }
+
+    .about-us-buttons button:not(.opt-4) span {
+        padding: 0 0 0 0;
+        text-align: center;
+    }
+
+    .about-us-buttons button:not(.opt-4) {
+        width: 100%;
+        margin-bottom: 5px;
+        height: 10vw;
+    }
+
+    .about-us-buttons button.opt-4 {
+        width: 100%;
+        height: 10vw;
+    }
+
+    .about-us-buttons button:not(.opt-4) span {
+        font-size: 16px;
+    }
+
+    .about-us-buttons button.opt-4 span {
+        font-size: 16px;
+    }
+
+    .btn-search {
+        width: 20px;
+        height: 20px;
     }
 
 }
