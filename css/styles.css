@@ -813,46 +813,48 @@ section header h2:hover {
     color: #f0626e;
 }
 
-.navigation {
-    flex-shrink: 0;
+.slick-arrow {
+	display: block;
+	width: 70px;
+	height: 80px;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+	font-size: 0;
+	color: transparent;
+	background: #3c3c3c url(../source/images/icon-next.png) no-repeat center;
+	z-index: 100;
 }
 
-.navigation button {
-    width: 70px;
-    height: 80px;
-    background: #3c3c3c;
-    vertical-align: middle;
-    text-align: center;
-    cursor: pointer;
+.navigation-2 ~  .slick-arrow:hover {
+	background-color: #f0626e;
 }
 
-.navigation button:hover {
-    background: #00a1be;
+.slick-arrow:hover {
+	background-color: #05aecc;
 }
 
-.slider-featured-products header .navigation button:hover {
-    background: #f0626e;
-}
-
-.navigation button i {
-    color: #fff;
-    font-size: 40px;
-    line-height: 40px;
+.slick-prev {
+	background: #3c3c3c url(../source/images/icon-prev.png) no-repeat center;
+	position: absolute;
+	bottom: 0;
+	right: 72px;
 }
 
 .slider-body {
-    display: flex;
-    justify-content: space-between;
+    display: block;
     position: relative;
+	margin: 0 -15px;
 }
 
 .slide-new-prod {
     position: relative;
-    height: 100%;
+	height: 200px;
     width: calc((100% - 60px ) / 3);
     cursor: pointer;
     overflow: hidden;
-    padding-top: 17%;
+    padding-top: calc(.17 * 1170px);
+	margin: 0 15px;
 }
 
 .slide-new-prod img,
@@ -900,12 +902,13 @@ div.slide-featured-prod img {
 
 .slide-featured-prod {
     position: relative;
-    height: 100%;
+    height: 292px;
     width: calc((100% - 90px ) / 4);
     cursor: pointer;
     overflow: hidden;
-    padding-top: 24%;
+    padding-top: 292px;
     border: 1px solid #dddddd;
+	margin: 0 15px;
 }
 
 .slide-featured-prod h3 {
@@ -990,12 +993,6 @@ div.slide-featured-prod img {
 .slide-featured-prod:nth-of-type(3) .product-label {
     background: #f0626e;
 }
-
-div.slide-featured-prod img {
-    left: -45px;
-}
-
-
 
 
 
@@ -1370,6 +1367,11 @@ input:focus::-webkit-input-placeholder {
     div.footer-nav {
         justify-content: flex-start;
     }
+
+	.slide-featured-prod,
+	.slide-new-prod {
+		margin: 0 5px;
+	}
 
 }
 
