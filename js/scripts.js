@@ -1,5 +1,11 @@
 $(window).ready(function() {
 
+	$('.slider-body').slick({
+		infinite: false,
+		slidesToShow: 3,
+		slidesToScroll: 1
+	});
+
 	$('.category-item-name').click(function() {
 		$(this).parent().siblings().removeClass('active');
 		$(this).parent().toggleClass('active');
