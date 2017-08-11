@@ -6,7 +6,7 @@ $(window).ready(function() {
 		slidesToScroll: 1,
 		responsive: [
 			{
-				breakpoint: 768,
+				breakpoint: 920,
 				settings: {
 					slidesToShow: 2,
 					slidesToScroll: 1,
@@ -15,17 +15,59 @@ $(window).ready(function() {
 			{
 				breakpoint: 620,
 				settings: {
-					slidesToShow: 1
+                    infinite: true,
+					slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '40px'
 				}
-			}
-
+			},
+            {
+                breakpoint: 480,
+                settings: {
+                    infinite: false,
+                    slidesToShow: 1,
+                    centerMode: false
+                }
+            }
 		]
 	});
 
 	$('.slider-2').slick({
 		infinite: false,
 		slidesToShow: 4,
-		slidesToScroll: 1
+		slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 920,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 620,
+                settings: {
+                	infinite: true,
+                    slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '120px'
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    infinite: true,
+                    slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '40px'
+                }
+            }
+        ]
 	});
 
 
